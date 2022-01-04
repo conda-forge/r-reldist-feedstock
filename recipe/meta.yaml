@@ -1,4 +1,4 @@
-{% set version = "1.7-0" %}
+{% set version = '1.7-0' %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -13,7 +13,7 @@ source:
   sha256: 51ba13e16fdf8d0c4ea497f2b28369f5d966a0b5d4fce917a9df993cb8690444
 
 build:
-  merge_build_host: true  # [win]
+  merge_build_host: True  # [win]
   number: 0
   noarch: generic
   rpaths:
@@ -23,13 +23,16 @@ build:
 requirements:
   build:
     - {{ posix }}zip               # [win]
+    - cross-r-base {{ r_base }}    # [build_platform != target_platform]
   host:
     - r-base
     - r-hmisc
+    - r-densestbayes
     - r-mgcv
   run:
     - r-base
     - r-hmisc
+    - r-densestbayes
     - r-mgcv
 
 test:
@@ -38,28 +41,33 @@ test:
     - "\"%R%\" -e \"library('reldist')\""  # [win]
 
 about:
-  home: http://www.stat.ucla.edu/~handcock/RelDist
+  home: http://www.stat.ucla.edu/~handcock/RelDist/
   license: GPL-3
-  summary: Tools for the comparison of distributions. This includes nonparametric estimation of the relative distribution PDF and CDF and numerical summaries as described in "Relative Distribution Methods in the Social Sciences" by Mark S. Handcock and Martina Morris, Springer-Verlag, 1999, Springer-Verlag, ISBN 0387987789.
+  summary: Tools for the comparison of distributions. This includes nonparametric estimation
+    of the relative distribution PDF and CDF and numerical summaries as described in
+    "Relative Distribution Methods in the Social Sciences" by Mark S. Handcock and Martina
+    Morris, Springer-Verlag, 1999, Springer-Verlag, ISBN 0387987789.
   license_family: GPL3
-  license_file: {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3
+  license_file:
+    - '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3'
+    - LICENSE
 
 extra:
   recipe-maintainers:
     - conda-forge/r
 
 # Package: reldist
-# Version: 1.6-6
-# Date: 2016-10-07
+# Version: 1.7-0
+# Date: 2021-11-10
 # Title: Relative Distribution Methods
 # Author: Mark S. Handcock <handcock@stat.ucla.edu>
 # Maintainer: Mark S. Handcock <handcock@stat.ucla.edu>
 # Description: Tools for the comparison of distributions. This includes nonparametric estimation of the relative distribution PDF and CDF and numerical summaries as described in "Relative Distribution Methods in the Social Sciences" by Mark S. Handcock and Martina Morris, Springer-Verlag, 1999, Springer-Verlag, ISBN 0387987789.
-# Imports: mgcv, Hmisc
+# Imports: mgcv, Hmisc, densEstBayes
 # Suggests: locfit
 # License: GPL-3 + file LICENSE
-# URL: http://www.stat.ucla.edu/~handcock/RelDist
+# URL: http://www.stat.ucla.edu/~handcock/RelDist/
 # NeedsCompilation: no
-# Packaged: 2016-10-09 17:00:10 UTC; handcock
+# Packaged: 2022-01-02 18:25:18 UTC; handcock
 # Repository: CRAN
-# Date/Publication: 2016-10-09 19:48:45
+# Date/Publication: 2022-01-04 00:40:02 UTC
