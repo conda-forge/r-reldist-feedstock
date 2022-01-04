@@ -1,4 +1,4 @@
-{% set version = '1.6-6' %}
+{% set version = "1.7-0" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,11 +10,11 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/reldist_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/reldist/reldist_{{ version }}.tar.gz
-  sha256: 8a7b55120d24fae72b4c284072b07d7f90094ba00bf89ba172e0b3ab8fbe7127
+  sha256: 51ba13e16fdf8d0c4ea497f2b28369f5d966a0b5d4fce917a9df993cb8690444
 
 build:
-  merge_build_host: True  # [win]
-  number: 2
+  merge_build_host: true  # [win]
+  number: 0
   noarch: generic
   rpaths:
     - lib/R/lib/
@@ -40,12 +40,9 @@ test:
 about:
   home: http://www.stat.ucla.edu/~handcock/RelDist
   license: GPL-3
-  summary: Tools for the comparison of distributions. This includes nonparametric estimation
-    of the relative distribution PDF and CDF and numerical summaries as described in
-    "Relative Distribution Methods in the Social Sciences" by Mark S. Handcock and Martina
-    Morris, Springer-Verlag, 1999, Springer-Verlag, ISBN 0387987789.
+  summary: Tools for the comparison of distributions. This includes nonparametric estimation of the relative distribution PDF and CDF and numerical summaries as described in "Relative Distribution Methods in the Social Sciences" by Mark S. Handcock and Martina Morris, Springer-Verlag, 1999, Springer-Verlag, ISBN 0387987789.
   license_family: GPL3
-  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3'
+  license_file: {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3
 
 extra:
   recipe-maintainers:
