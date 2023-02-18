@@ -1,4 +1,4 @@
-{% set version = "1.7-1" %}
+{% set version = "1.7-2" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,11 +10,11 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/reldist_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/reldist/reldist_{{ version }}.tar.gz
-  sha256: 2693ab9660e34a3f5e27bf8eec985f7f8dcd625df14779367c93557c15c66b9e
+  sha256: d9086cbc14ed7c65d72da285b86a07e77cbfebc478ba7327b769bd08549229c9
 
 build:
   merge_build_host: true  # [win]
-  number: 1
+  number: 0
   noarch: generic
   rpaths:
     - lib/R/lib/
