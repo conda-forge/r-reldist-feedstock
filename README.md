@@ -1,11 +1,11 @@
-About r-reldist
-===============
+About r-reldist-feedstock
+=========================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-reldist-feedstock/blob/main/LICENSE.txt)
 
 Home: http://www.stat.ucla.edu/~handcock/RelDist
 
 Package license: GPL-3.0-only
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-reldist-feedstock/blob/main/LICENSE.txt)
 
 Summary: Tools for the comparison of distributions. This includes nonparametric estimation of the relative distribution PDF and CDF and numerical summaries as described in "Relative Distribution Methods in the Social Sciences" by Mark S. Handcock and Martina Morris, Springer-Verlag, 1999, Springer-Verlag, ISBN 0387987789.
 
